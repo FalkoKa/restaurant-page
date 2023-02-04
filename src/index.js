@@ -1,4 +1,6 @@
 import loadHome from './home';
+import loadContact from './contact';
+import loadMenu from './menu';
 
 function createHeader() {
   const content = document.querySelector('.content');
@@ -18,15 +20,18 @@ function createHeader() {
   content.append(main);
   header.append(h1);
   header.append(nav);
-  nav.appendChild(createNav('Home'));
-  nav.appendChild(createNav('Menu'));
-  nav.appendChild(createNav('Contact'));
+  nav.appendChild(createNav('Home', loadHome));
+  nav.appendChild(createNav('Menu', loadMenu));
+  nav.appendChild(createNav('Contact', loadContact));
 }
 
-function createNav(text) {
+function createNav(text, func) {
   const nav = document.createElement('button');
   nav.setAttribute('class', text);
   nav.textContent = text;
+
+  nav.addEventListener('click', func);
+
   return nav;
 }
 
