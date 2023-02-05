@@ -48,8 +48,6 @@ function createMenuItem(cl, name, paragraph, source, altern) {
 
 function loadMenu() {
   const main = document.querySelector('.main');
-  const button = document.querySelector('.Menu');
-  button.classList.toggle('active');
   main.textContent = '';
   main.append(createMenu());
 }
